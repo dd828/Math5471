@@ -23,4 +23,7 @@ Step1: Open R studio and install the package:
 devtools::install_github("dd828/Math5472_project")
 ```
 
-Step2: load the package: library(Math5472Project).
+Step2: load the package: 
+```{r}
+library(Math5472Project).
+```
