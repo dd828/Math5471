@@ -37,10 +37,8 @@ A list containing:
 }
 }
 \description{
-This function performs matrix completion by iteratively filling missing values using the Soft-Impute-ALS algorithm.
-}
-\details{
 Rank-Restricted Soft-Impute ALS Algorithm (Algorithm 5.1)
+Implement the algorithm 5.1 in the reference paper.
 }
 \examples{
 # Example usage
