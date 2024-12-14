@@ -18,6 +18,9 @@ to perform svd for $\hat{X}$.
 
 How to reproduce the results in the report?
 
-Step1: Open R studio and install package: devtools::install_github("dd828/Math5472_project")
+Step1: Open R studio and install the package: 
+```{r}
+devtools::install_github("dd828/Math5472_project")
+```
 
 Step2: load the package: library(Math5472Project).
