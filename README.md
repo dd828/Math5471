@@ -1,4 +1,4 @@
-This is for the final project for the course MATH 5472. I totally implement 5 algorithms.
+This is for the final project for the course MATH 5472. I totally implement 5 algorithms and seal them into a package:"Math5472Project."
 
 Reference Paper: Matrix Completion and Low-Rank SVD via Fast Alternating Least Squares  [link].
 
@@ -14,3 +14,10 @@ als_matrix_completion: implement the modified algorithm 5.2(with the addition of
 
 soft_impute: implement the original algorithm of Mazumder et al. (2010), as layed out in steps (2)–(4). I use rank_restricted_soft_svd with $\lambda=0$
 to perform svd for $\hat{X}$.
+
+
+How to reproduce the results in the report?
+
+Step1: Open R studio and install package: devtools::install_github("dd828/Math5472_project")
+
+Step2: load the package: library(Math5472Project).
