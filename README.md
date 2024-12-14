@@ -44,6 +44,11 @@ Load the package into your R session:
 library(Math5472Project)
 ```
 
+### Step 3: Perform timing experiments
+Type the parameters you want to reproduce.
+```{r}
+timing_experiments(m = 100, n =50, r = 10, rank = 5, lambda = 15, missing_rate = 0.93, max_iter = 1000, tol = 1e-8, k = 1, sigma = 0.1)
+```
 ## Notes
 
 - Ensure that all required dependencies are installed in your R environment.
