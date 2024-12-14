@@ -23,9 +23,9 @@ Implements Algorithm 5.1 from the reference paper.
 Implements a modified version of Algorithm 5.2 from the reference paper, incorporating an additional regularization parameter $(\lambda\)$.
 
 ### 5. `soft_impute`
-Implements the original algorithm by Mazumder et al. (2010), as described in steps (2)–(4) of their method. It uses `rank_restricted_soft_svd` with $(\lambda = 0)$ to perform SVD for $(\hat{X})$.
+Implements the original algorithm by Mazumder et al. (2010), as described in steps (2)–(4) of reference paper. It uses `rank_restricted_soft_svd` with $(\lambda = 0)$ to perform SVD for $(\hat{X})$.
 
-### 6. `timing_experiments`
+### 6. `Timing_experiments`
 This function performs timing experiments comparing three matrix completion algorithms: ALS (Alternating Least Squares),
 Soft-Impute, and Soft-Impute-ALS. It generates a synthetic low-rank matrix, introduces noise and missing values,
 applies the algorithms, and evaluates their performance in terms of computation time and relative error.
