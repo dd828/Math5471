@@ -1,7 +1,7 @@
 #' Soft-Impute Algorithm for Matrix Completion
 #'
 #' Implements the Soft-Impute algorithm for matrix completion. The algorithm uses Rank Restricted Soft SVD
-#'algorithm with lambda=0 to perform svd for X_hat.
+#'algorithm with lambda=0(algorithm 2.1 in the reference paper) to perform svd for X_hat.
 #'
 #'
 #' @param X A numeric matrix of size \code{m x n} with missing values (use \code{NA} for missing entries).
@@ -52,7 +52,7 @@ soft_impute <- function(X, r, lambda, max_iter = 100, max_iter_svd = 100, tol = 
   for (iter in 1:max_iter) {
     start_time <- Sys.time()
 
-    # Step 2: Update X_hat and compute SVD
+  # Step 2: Update X_hat and compute SVD
     R_obs <- matrix(0, m, n)
     R_obs[M] <- (X - M_hat)[M]
     X_hat <- M_hat + R_obs
@@ -62,7 +62,7 @@ soft_impute <- function(X, r, lambda, max_iter = 100, max_iter_svd = 100, tol = 
     D <- svd_res$D
     V <- svd_res$V
 
-    # Apply soft-thresholding to singular values
+  # Step3: Apply soft-thresholding to singular values
     D_soft <- pmax(diag(D) - lambda, 0)
     D_soft_mat <- diag(D_soft)
 

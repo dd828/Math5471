@@ -61,7 +61,7 @@ rank_restricted_softImpute_ALS_3.1<- function(X, r, lambda, max_iter = 100, tol 
   obj_old <- Inf
   objectives <- numeric()
   for (iter in 1:max_iter) {
-    # Step2:  Given A, solve for B
+  # Step2:  Given A, solve for B
 
     ABt <- A %*% t(B)
 
@@ -70,7 +70,7 @@ rank_restricted_softImpute_ALS_3.1<- function(X, r, lambda, max_iter = 100, tol 
     X_star <- ABt + R_obs #stored as sparse plus low-rank.
     D2_lI_inv <- solve(D^2 + lambda * diag(r))
     B_t <- D2_lI_inv %*% D %*% t(U) %*% X_star
-    # Step 3: Update V ,D,  B
+  # Step 3: Update V ,D,  B
     B=t(B_t)
     B_D <- B %*% D
     svd_BD <- svd(B_D)
@@ -80,7 +80,7 @@ rank_restricted_softImpute_ALS_3.1<- function(X, r, lambda, max_iter = 100, tol 
     D <- D_B
     B <- V %*% D
 
-    # Step 4: Given B, solve for A
+  # Step 4: Given B, solve for A
     ABt <- A %*% t(B)
     R_obs <- matrix(0, m, n)
     R_obs[M] <- (X - ABt)[M]
@@ -88,7 +88,7 @@ rank_restricted_softImpute_ALS_3.1<- function(X, r, lambda, max_iter = 100, tol 
 
     D2_lI_inv <- solve(D^2 + lambda * diag(r))
     A= X_star%*%V%*%D%*%D2_lI_inv
-    # Step 5: Update U, D, A
+  # Step 5: Update U, D, A
     A_D <- A %*% D
     svd_AD <- svd(A_D)
     U_A <- svd_AD$u
@@ -97,7 +97,7 @@ rank_restricted_softImpute_ALS_3.1<- function(X, r, lambda, max_iter = 100, tol 
     D <- D_A
     A=U%*%D
 
-    # Step 6: Check convergence using relative objective error
+  # Step 6: Check convergence using relative objective error
     ABt <- A %*% t(B)
     obj_new <- 0.5 * sum(((X - ABt)[M])^2) + (lambda / 2) * (sum(A^2) + sum(B^2))
     objectives <- c(objectives, obj_new)
