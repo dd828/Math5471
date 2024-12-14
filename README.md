@@ -20,10 +20,10 @@ Implements Algorithm 3.1 from the reference paper.
 Implements Algorithm 5.1 from the reference paper.
 
 ### 4. `als_matrix_completion`
-Implements a modified version of Algorithm 5.2 from the reference paper, incorporating an additional regularization parameter \(\lambda\).
+Implements a modified version of Algorithm 5.2 from the reference paper, incorporating an additional regularization parameter $(\lambda\)$.
 
 ### 5. `soft_impute`
-Implements the original algorithm by Mazumder et al. (2010), as described in steps (2)–(4) of their method. It uses `rank_restricted_soft_svd` with \(\lambda = 0\) to perform SVD for \(\hat{X}\).
+Implements the original algorithm by Mazumder et al. (2010), as described in steps (2)–(4) of their method. It uses `rank_restricted_soft_svd` with $(\lambda = 0)$ to perform SVD for $(\hat{X})$.
 
 ## How to Reproduce the Results in the Report
 
