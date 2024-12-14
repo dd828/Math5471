@@ -1,7 +1,7 @@
 
 # Math5472 Project
 
-This repository contains the final project for the course **MATH 5472**. The project implements five algorithms and two experiments function and encapsulates them into an R package named **Math5472Project**.
+This repository contains the final project for the course **MATH 5472**. The project implements five algorithms and two experiment functions and encapsulates them into an R package named **Math5472Project**.
 
 ## Reference
 
