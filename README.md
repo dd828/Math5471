@@ -1,29 +1,58 @@
-This is for the final project for the course MATH 5472. I totally implement 5 algorithms and seal them into a package:"Math5472Project."
 
-Reference Paper: Matrix Completion and Low-Rank SVD via Fast Alternating Least Squares  [link].
+# Math5472 Project
 
-Functions: 
+This repository contains the final project for the course **MATH 5472**. The project implements five algorithms and encapsulates them into an R package named **Math5472Project**.
 
-rank_restricted_soft_svd: implement the algorithm 2.1 in the reference paper.
+## Reference
 
-rank_restricted_softImpute_ALS_3.1: implement the algorithm 3.1 in the reference paper.
+The implementation is based on the paper:
+**Matrix Completion and Low-Rank SVD via Fast Alternating Least Squares** .
 
-rank_restricted_softImpute_ALS_5.1: implement the algorithm 5.1 in the reference paper.
+## Implemented Functions
 
-als_matrix_completion: implement the modified algorithm 5.2(with the addition of a regularization parameter $\lambda$ )  in the reference paper. 
+### 1. `rank_restricted_soft_svd`
+Implements Algorithm 2.1 from the reference paper.
 
-soft_impute: implement the original algorithm of Mazumder et al. (2010), as layed out in steps (2)–(4). I use rank_restricted_soft_svd with $\lambda=0$
-to perform svd for $\hat{X}$.
+### 2. `rank_restricted_softImpute_ALS_3.1`
+Implements Algorithm 3.1 from the reference paper.
 
+### 3. `rank_restricted_softImpute_ALS_5.1`
+Implements Algorithm 5.1 from the reference paper.
 
-How to reproduce the results in the report?
+### 4. `als_matrix_completion`
+Implements a modified version of Algorithm 5.2 from the reference paper, incorporating an additional regularization parameter \(\lambda\).
 
-Step1: Open R studio and install the package: 
-```{r}
+### 5. `soft_impute`
+Implements the original algorithm by Mazumder et al. (2010), as described in steps (2)–(4) of their method. It uses `rank_restricted_soft_svd` with \(\lambda = 0\) to perform SVD for \(\hat{X}\).
+
+## How to Reproduce the Results in the Report
+
+### Step 1: Install the Package
+
+Open RStudio and install the package using the following command:
+```R
+# Install the package from GitHub
+if (!require("devtools")) install.packages("devtools")
 devtools::install_github("dd828/Math5472_project")
 ```
 
-Step2: load the package: 
-```{r}
+### Step 2: Load the Package
+
+Load the package into your R session:
+```R
+# Load the package
 library(Math5472Project)
 ```
+
+## Notes
+
+- Ensure that all required dependencies are installed in your R environment.
+- For additional details about each function, please refer to the documentation provided within the package.
+
+
+
+
+
+
+
+
