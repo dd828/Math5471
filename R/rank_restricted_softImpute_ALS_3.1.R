@@ -1,8 +1,6 @@
 #' Soft-Impute-ALS Algorithm (Algorithm 3.1)
 #'
-#' Implements the Soft-Impute Alternating Least Squares (ALS) algorithm for matrix completion
-#' with a rank restriction and regularization, inspired by Algorithm 3.1 in the referenced paper.
-#'
+#' Implements the Soft-Impute-ALS Algorithm  (Algorithm 3.1 in the referenced paper).
 #' @param X A numeric matrix of size \code{m x n} with missing values (use \code{NA} for missing entries).
 #' @param r An integer specifying the target rank for the low-rank approximation.
 #' @param lambda A numeric value for the regularization parameter, controlling the shrinkage applied to the factor matrices.
@@ -19,17 +17,9 @@
 #'   \item{objectives}{A numeric vector of the objective loss values at each iteration.}
 #'
 #' @details
-#' This function performs matrix completion using a low-rank approximation technique, alternating between
-#' solving for the left and right singular vectors (\code{U} and \code{V}), and applying soft-thresholding
-#' to singular values (\code{D}). Regularization is applied to avoid overfitting, controlled by the
-#' parameter \code{lambda}. The algorithm iteratively updates \code{A} (row factors) and \code{B} (column factors)
-#' to minimize the reconstruction error.
-#'
 #' Convergence is determined by monitoring the relative change in the objective loss, which includes the
 #' reconstruction error and the regularization penalty.
 #'
-#' @references
-#' Reference the original paper or technical documentation for Algorithm 3.1, where this method is described in detail.
 #'
 #' @examples
 #' # Example usage:
@@ -59,16 +49,7 @@ rank_restricted_softImpute_ALS_3.1<- function(X, r, lambda, max_iter = 100, tol 
   n <- ncol(X)
 
 
-  # Step 1: Random initialization of U
-  #U <- qr.Q(qr(matrix(rnorm(m * r), m, r)))
-  #D <- diag(1, r, r)
-  #V <- matrix(0, n, r)
-  #A <- U %*% D
-  #B <- V %*% D
-  #old_ABt <- A %*% t(B)
-  #obj_old <- Inf
-
-
+  # Step 1: initialization of U
   M_hat <- X
   M_hat[!M] <- 0
   U=svd(M_hat)$u[,1:r]

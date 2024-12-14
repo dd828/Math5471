@@ -40,13 +40,9 @@ A list containing the following elements:
 }
 \description{
 Implements the Soft-Impute algorithm for matrix completion. The algorithm uses Rank Restricted Soft SVD
-algorithm with lambda=0 to do svd for X_hat.
+algorithm with lambda=0 to perform svd for X_hat.
 }
 \details{
-The algorithm alternates between estimating the missing entries of the matrix \code{X} and performing singular value
-decomposition (SVD) on the imputed matrix. Singular values are soft-thresholded using the regularization parameter \code{lambda}.
-Convergence is determined by the change in the objective loss between iterations or reaching the maximum number of iterations.
-
 The function relies on the \code{rank_restricted_soft_svd} function to perform SVD with a rank restriction.
 }
 \examples{

@@ -28,16 +28,9 @@ A list containing the following elements:
 \item{objectives}{A numeric vector of the objective loss values at each iteration.}
 }
 \description{
-Implements the Soft-Impute Alternating Least Squares (ALS) algorithm for matrix completion
-with a rank restriction and regularization, inspired by Algorithm 3.1 in the referenced paper.
+Implements the Soft-Impute-ALS Algorithm  (Algorithm 3.1 in the referenced paper).
 }
 \details{
-This function performs matrix completion using a low-rank approximation technique, alternating between
-solving for the left and right singular vectors (\code{U} and \code{V}), and applying soft-thresholding
-to singular values (\code{D}). Regularization is applied to avoid overfitting, controlled by the
-parameter \code{lambda}. The algorithm iteratively updates \code{A} (row factors) and \code{B} (column factors)
-to minimize the reconstruction error.
-
 Convergence is determined by monitoring the relative change in the objective loss, which includes the
 reconstruction error and the regularization penalty.
 }
@@ -57,7 +50,4 @@ print(dim(D)) # Dimensions of D
 print(dim(V)) # Dimensions of V
 plot(result$objectives, type = "o", main = "Objective Loss vs Iterations")
 
-}
-\references{
-Reference the original paper or technical documentation for Algorithm 3.1, where this method is described in detail.
 }

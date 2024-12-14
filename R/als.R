@@ -40,10 +40,6 @@ als_matrix_completion<- function(X, r, lambda, max_iter = 100, tol = 1e-6, k = 1
   M <- !is.na(X)
 
   # Step 1: Initialize A and B
-  #set.seed(123)
-  #A <- matrix(rnorm(m * r), m, r)
-  #B <- matrix(rnorm(n * r), n, r)
-
   M_hat <- X
   M_hat[!M] <- 0
   U=svd(M_hat)$u[,1:r]

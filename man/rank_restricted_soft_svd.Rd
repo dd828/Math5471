@@ -2,7 +2,7 @@
 % Please edit documentation in R/rank_restricted_soft_svd.R
 \name{rank_restricted_soft_svd}
 \alias{rank_restricted_soft_svd}
-\title{Rank-Restricted Soft SVD}
+\title{Rank-Restricted Soft SVD(Algorithm2.1)}
 \usage{
 rank_restricted_soft_svd(
   X,
@@ -35,14 +35,9 @@ A list containing the following elements:
 }
 \description{
 Implements the Rank-Restricted Soft Singular Value Decomposition (SVD) algorithm for low-rank approximation
-with regularization, based on Algorithm 2.1 in the referenced paper.
+with regularization (based on Algorithm 2.1 in the referenced paper).
 }
 \details{
-The algorithm alternates between solving for the left and right singular vectors \code{U} and \code{V}, and the
-singular values \code{D}, while applying a soft-thresholding operation to regularize the singular values.
-The rank restriction is imposed to ensure that only the top \code{r} singular values and corresponding singular
-vectors are used in the approximation.
-
 Convergence is determined by monitoring the change in the objective loss, which includes both the reconstruction
 error and the regularization term.
 }
@@ -58,7 +53,4 @@ print(dim(U)) # Dimensions of U
 print(dim(D)) # Dimensions of D
 print(dim(V)) # Dimensions of V
 
-}
-\references{
-Reference the original paper or technical documentation for Algorithm 2.1, where this method is described in detail.
 }
