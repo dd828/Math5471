@@ -55,43 +55,50 @@ library(Math5472Project)
 ```
 
 ### Step 3: Perform timing experiments
-I list the parameters I use in my simulation.
+I list the parameters I used in my timing simulation.
 
-#### figure 1
+#### Figure 1
 ```{r}
 timing_experiments(m = 100, n =50, r = 10, rank = 5, lambda = 15, missing_rate = 0.93, max_iter = 1000, tol = 1e-8, k = 1, sigma = 0.1)
 ```
-#### figure 2
+#### Figure 2
 ```{r}
 timing_experiments(m = 100, n =50, r = 10, rank = 5, lambda = 15, missing_rate = 0.7, max_iter = 1000, tol = 1e-8, k = 1, sigma = 0.1)
 ```
-#### figure 3
+#### Figure 3
 ```{r} 
 timing_experiments(m = 300, n = 200, r = 25, rank = 15, lambda = 50, missing_rate = 0.85, max_iter = 2000, tol = 1e-8, k = 1, sigma = 0.1)
 ```
-#### figure 4
+#### Figure 4
 ```{r}
 timing_experiments(m = 300, n = 200, r = 25, rank = 15, lambda = 50, missing_rate = 0.75, max_iter = 1000, tol = 1e-8, k = 1, sigma = 0.1)
 ```
 
 ### Step4: Perform RMSE experiments
-I list the parametes I use in my simulation.
+I list the parametes I used in my RMSE simulation.
+
+#### Figure 5
 ```{r}
-### figure 5
 RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 0.1, missing_rate = 0.2, lambda = 15, max_iter = 2000, method = "all")
-### figure 6
+```
+#### Figure 6
+```{r}
 RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 0.1, missing_rate = 0.7, lambda = 15, max_iter = 2000, method = "all")
-
-### figure 7
+```
+#### Figure 7
+```{r}
 RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 1, missing_rate = 0.2, lambda = 15, max_iter = 2000, method = "all")
-
-### figure 8
+```
+#### Figure 8
+```{r}
 RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 1, missing_rate = 0.7, lambda = 15, max_iter = 2000, method = "all")
-
-### figure 9
+```
+#### Figure 9
+```{r}
 RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 10, missing_rate = 0.2, lambda = 15, max_iter = 2000, method = "all")
-
-### figure 10
+```
+#### Figure 10
+```{r}
 RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 10, missing_rate = 0.7, lambda = 15, max_iter = 2000, method = "all")
 ```
 ## Notes
