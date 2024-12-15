@@ -57,19 +57,40 @@ library(Math5472Project)
 ### Step 3: Perform timing experiments
 Type the parameters you want to reproduce.
 ```{r}
-# (100×50) 93% NAs λ=15, rank=5, r=10.
+### figure 1
 timing_experiments(m = 100, n =50, r = 10, rank = 5, lambda = 15, missing_rate = 0.93, max_iter = 1000, tol = 1e-8, k = 1, sigma = 0.1)
-# (100×50) 70% NAs λ=15, rank=5, r=10.
+
+### figure 2
 timing_experiments(m = 100, n =50, r = 10, rank = 5, lambda = 15, missing_rate = 0.7, max_iter = 1000, tol = 1e-8, k = 1, sigma = 0.1)
+
+# figure 3
+timing_experiments(m = 300, n = 200, r = 25, rank = 15, lambda = 50, missing_rate = 0.85, max_iter = 2000, tol = 1e-8, k = 1, sigma = 0.1)
+
+### figure 4
+timing_experiments(m = 300, n = 200, r = 25, rank = 15, lambda = 50, missing_rate = 0.75, max_iter = 1000, tol = 1e-8, k = 1, sigma = 0.1)
 
 
 ```
 
 ### Step4: Perform RMSE experiments
-Tyep teh parameters you want to reproduce.
+I list the parametes I use in my simulation.
 ```{r}
-RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 0.1, missing_rate = 0.2, lambda = 0.1, max_iter = 2000, method = "all")
+### figure 5
+RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 0.1, missing_rate = 0.2, lambda = 15, max_iter = 2000, method = "all")
+### figure 6
+RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 0.1, missing_rate = 0.7, lambda = 15, max_iter = 2000, method = "all")
 
+### figure 7
+RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 1, missing_rate = 0.2, lambda = 15, max_iter = 2000, method = "all")
+
+### figure 8
+RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 1, missing_rate = 0.7, lambda = 15, max_iter = 2000, method = "all")
+
+### figure 9
+RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 10, missing_rate = 0.2, lambda = 15, max_iter = 2000, method = "all")
+
+### figure 10
+RMSE_experiments(m = 100, n = 50, r=10,rank = 5, noise_sd = 10, missing_rate = 0.7, lambda = 15, max_iter = 2000, method = "all")
 ```
 ## Notes
 
