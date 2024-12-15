@@ -13,6 +13,7 @@ RMSE_experiments(
   missing_rate,
   lambda,
   max_iter,
+  tol = 1e-06,
   method = "all"
 )
 }
@@ -33,13 +34,15 @@ RMSE_experiments(
 
 \item{max_iter}{Integer. Maximum number of iterations for the algorithms.}
 
-\item{method}{Character. Which method to use for matrix completion. Options are "all", "ALS", "softImpute", or "softImputeALS". Default is "all".
+\item{tol}{Numeric. Convergence tolerance for stopping the algorithms.
 
 @return A list containing:
 \itemize{
 \item \code{RMSE_results}: A named list with the RMSE values for each method (\code{observed_rmse} and \code{full_rmse}).
 \item The function also prints the RMSE results and plots the reconstructed matrices for visual comparison.
 }}
+
+\item{method}{Character. Which method to use for matrix completion. Options are "all", "ALS", "softImpute", or "softImputeALS". Default is "all".}
 }
 \description{
 This function compares the performance of three matrix completion algorithms—ALS, Soft-Impute, and Soft-Impute-ALS—

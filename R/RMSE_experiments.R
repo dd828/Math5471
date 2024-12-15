@@ -13,6 +13,7 @@
 #' @param lambda Numeric. Regularization parameter for the algorithms.
 #' @param max_iter Integer. Maximum number of iterations for the algorithms.
 #' @param method Character. Which method to use for matrix completion. Options are "all", "ALS", "softImpute", or "softImputeALS". Default is "all".
+#' @param tol Numeric. Convergence tolerance for stopping the algorithms.
 #'
 #'  @return A list containing:
 #'   - `RMSE_results`: A named list with the RMSE values for each method (`observed_rmse` and `full_rmse`).
@@ -36,7 +37,7 @@
 #'
 #' @import ggplot2
 #' @export
-RMSE_experiments <- function(m, n, r,rank, noise_sd, missing_rate, lambda, max_iter, method = "all") {
+RMSE_experiments <- function(m, n, r,rank, noise_sd, missing_rate, lambda, max_iter, tol=1e-6,method = "all") {
 
   # Simulate ground truth matrix
   set.seed(42)
@@ -57,7 +58,7 @@ RMSE_experiments <- function(m, n, r,rank, noise_sd, missing_rate, lambda, max_i
 
   if (method == "all" || method == "ALS") {
     # Apply ALS algorithm
-    als_results <- als_matrix_completion(X_missing, r = r, lambda = lambda, max_iter = max_iter)
+    als_results <- als_matrix_completion(X_missing, r = r, lambda = lambda, max_iter = max_iter,tol=tol)
     X_reconstructed_als <- als_results$A %*% t(als_results$B)
 
     # Evaluate accuracy for ALS
@@ -70,7 +71,7 @@ RMSE_experiments <- function(m, n, r,rank, noise_sd, missing_rate, lambda, max_i
 
   if (method == "all" || method == "softImpute") {
     # Apply Soft-Impute algorithm
-    soft_impute_results <- soft_impute(X_missing, r =  r, lambda = lambda, max_iter = max_iter)
+    soft_impute_results <- soft_impute(X_missing, r =  min(m,n), lambda = lambda, max_iter = max_iter,tol=tol)
     X_reconstructed_soft_impute <- soft_impute_results$M_hat
 
     # Evaluate accuracy for Soft-Impute
@@ -82,7 +83,7 @@ RMSE_experiments <- function(m, n, r,rank, noise_sd, missing_rate, lambda, max_i
 
   if (method == "all" || method == "softImputeALS") {
     # Apply Soft-Impute-ALS algorithm
-    soft_impute_als_results <- rank_restricted_softImpute_ALS_5.1(X_missing, r = r, lambda = lambda, max_iter = max_iter)
+    soft_impute_als_results <- rank_restricted_softImpute_ALS_5.1(X_missing, r = r, lambda = lambda, max_iter = max_iter,tol=tol)
     X_reconstructed_soft_impute_als <- soft_impute_als_results$A %*% t(soft_impute_als_results$B)
 
     # Evaluate accuracy for Soft-Impute-ALS
